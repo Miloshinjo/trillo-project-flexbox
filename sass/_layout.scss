@@ -1,0 +1,97 @@
+.container {
+    max-width: 120rem; // using max-width instead of width so that container can decrease when we look at it on smaller screens.
+    margin: 8rem auto; // old centering trick that centers the container in it's parent element.
+    background-color: var(--color-grey-light-2);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem; // for testing purposes
+
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.header {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--line);
+
+    display: flex; // header is the parent element of the header items.
+    justify-content: space-between; // justify-content --> align elements on the Main axis. divide the space between 3 elements of the header.
+    align-items: center; // align-items --> align elements on the Cross axis.
+
+    @media only screen and (max-width: $bp-smallest) {
+        flex-wrap: wrap;
+        height: 11rem;
+        justify-content: space-around;
+    }
+
+}
+// parent element of the .sidebar and .hotel-view.
+.content {
+    display: flex;
+    @media only screen and (max-width: $bp-medium) {
+       flex-direction: column;
+    }
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%;  // this is for the width of the sidebar. we use flex-basis property. so flex: flex grow(0), flex shrink(0), flex-basus (18%), which is the 18% of the total width. Shrink can be 0 or 1 (0 doesn't allow it to shrink)
+
+    display: flex;
+    flex-direction: column; // we changed the direction of the main axis in this case because we want to separate the content with justify-content in between.
+    justify-content: space-between; // this will separate the copyright info with the main navigation on the sidebar.
+}
+
+.hotel-view {
+    background-color: #fff;
+    flex: 1; // by using flex: 1 we say that element should grow as much as it can. (take out all remaining space)
+}
+
+.detail {
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+    font-size: 1.4rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    }
+
+}
+
+.description {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+
+}
+
+.user-reviews {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
